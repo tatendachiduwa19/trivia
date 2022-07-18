@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, Length, Email, EqualTo
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, NumberRange
 
 
 class RegistrationForm(FlaskForm):
@@ -20,3 +20,6 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
 
+class Difficulty(FlaskForm):
+    question = IntegerField('Difficulty', validators=[NumberRange(min=1, max=20, message='')])
+    submit = SubmitField('Submit')
