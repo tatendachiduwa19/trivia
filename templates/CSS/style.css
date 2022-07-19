@@ -1,0 +1,227 @@
+<style>
+    /* Default page4 styles */
+    html,
+    body{
+        padding-top: 55px;
+        height: 100%;
+        font family: "Lato", sans-serif; 
+        -webkit-font-smoothing: antialiased;  
+        font-smoothing:antialiased;  
+        font-size: 14px;
+    } 
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6{
+        color: #494753; 
+        margin: 0; 
+        font-weight: 549; 
+        font-family:"Futura", sans-serif; 
+    }
+
+    h1{
+        font-size: 58px; 
+    }
+
+    h2{
+        font-size: 42px; 
+    }
+
+    h3{
+        font-size: 30px; 
+    }
+
+    h4{
+        font-size: 24px; 
+    }
+
+    h5{
+        font-size: 20px; 
+    }
+
+    h6{
+        font-size: 14px; 
+    }
+
+    p{
+        font-size: 18px; 
+        color: #6a6c6d; 
+        line-height: 1.8;
+    }
+
+    p, h1, h2, h3, h4, h5, h6 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    img {
+        max-width: 100%; 
+    }
+
+    input:focus,
+    select:focus,
+    button:focus,
+    textarea:focus {
+        outline: none; 
+    }
+
+    a{
+        transition: 0.5s linear; 
+    }
+
+    a:hover,
+    a:focus{
+        color: #40bf80 !important; 
+        text-decoration: none; 
+        outline: none; 
+        cursor: pointer; 
+    }
+
+    ul, ol{
+        padding: 0; 
+    }
+
+    /* End of default page styles */
+
+
+    /* Custom styles */
+    #navigationBar li a:focus::before{ 
+        content: ''; 
+        background: #40bf80; 
+        width: 10px; 
+        height: 10px; 
+        border-radius: 50%;        
+        position: relative;            
+        left: -2px; 
+        top: 0px; 
+        display: inline-block; 
+    }
+
+
+    .menu > a,#navigationBar ul li a{
+        font-weight: bold;
+        padding: 14px;
+    }
+
+
+    .navbar-brand{
+        margin-top: -60px; /*Strips top margin with 60px */
+        margin-bottom: -60px; /* Strips bottom margin with 60px */
+    }
+
+    .lr a{
+        display: inline-block; /* Displays button inline with each other */
+    }
+
+    .lr-btn{
+        width: 140px;
+        border-radius: 40px;
+        padding: 8px;
+        margin-top: -12px;
+        margin-bottom: -12px;
+        color: #fff;
+        font-size: 15px;
+
+        background: #4077bf; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(left, #40bf80 , #339966); /* For Safari 5.1 to 6.0 */
+        background: -0-linear-gradient(right, #40bf80, #339966); /* For opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(right, #40bf80, #339966); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to right, #40bf80, #339966); /* Standard Syntax */
+
+        -webkit-box-shadow: 0 0 10px 0px rgba(64, 191, 128, 0.9);
+                box-shadow: 0 0 10px 0px rgba(64, 191, 128, 0.9);
+
+        transition: 0.5s linear;
+
+    }
+
+    .footer {
+        margin-top: 200px;
+    }
+
+    .footer h5, .footer, .footer p{
+        background-color: #2a3341;
+        color: #fff;
+    }
+
+    .footerContent{
+        padding: 30px;
+    }
+
+    .footerRow{
+        max-width: 94% !important;
+    }
+
+    .footerContent ul li, h5, p{
+        list-style-type: none;
+        text-align: left;
+    }
+
+    .footerCopyright{
+        padding: 20px;
+        text-align: center;
+        background-color: #1e242e;
+    }
+
+    .footerRow li a{
+        color: #fff !important;
+    }
+
+    .footerRow li a:hover{
+        color: #fff !important;
+        margin-left: 7px !important;
+    }
+
+    .socialIcons li{
+        display: inline-block !important;
+        float: left;
+
+        margin-right: 7px;
+        width: 49px;
+        height: 49px;
+        font-size: 27px;
+
+        border: 1px solid #fff;
+        border-radius: 50%;
+    }
+
+    .socialIcons li a i{
+        position: relative;
+        margin: 10px 10px;
+        color: #fff;
+    }
+
+    .subscribeField{
+        background-color: transparent;
+        padding: 8px !important;
+        border: 0.5px solid #888;
+    }
+
+    .form-btn{
+        border-radius: 40px;
+        background-color: #40bf80;
+        min-width: 120px;
+        color: #fff;
+        font-family: calibri;
+
+        background: #40bf80; /*For browsers that do not support gradients */
+        background: -webkit-linear-gradient(left, #40bf80, #339966); /* For safari 5.1 to 6.0 */
+        background: -0-linear-gradient(right, #40bf80, #339966); /* For opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(right, #40bf80, #339966); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to right, #40bf80, #339966); /* Standard Syntax */
+
+        transition: 0.5s linear;
+    }
+
+    .form-btn:hover{
+        color: #fff;
+        -webkit-box-shadow: 0 0 10px 0px rgba(64, 191, 128, 0.9);
+        box-shadow: 0 0 10px 0px rgba(64, 191, 128, 0.9);
+    }
+
+    /*End of custom styles */
+    }
+</style>

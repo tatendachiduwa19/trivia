@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+
+        <!--Meta tag-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!--Bootstrap CSS CDN Link -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<!--FontAwesome CDN Link -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+
+		<!--CSS Stylesheet file -->
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+	<body>
+		<header>
+
+		<!-- Navigation Bar -->
+
+		        <nav class="navbar navbar-expand-lg navbar-light bg-white menu fixed-top">
+	                    <a href="#" class="navbar-brand"> <img src="images/trivia.jpg" width="140px" height="60px" alt="logo image"> </a>
+ 	                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navigationBar">
+ 	                    <span class="navbar-toggler-icon"></span>
+ 	                    </button>
+ 	                    <div class="collapse navbar-collapse " id="navigationBar">
+
+ 		                    <ul class="navbar-nav ml-auto">
+ 		                        <li class="nav-item active px-3"><a href="index.html" class="nav-link">
+                                     <button class="btn btn-lg btn-default lr-btn"><i class="fa fa-home"></i>Home</button></a>
+                                </li>
+
+                                <li class="nav-item lr"><a href="pages/login.html" class="nav-link">
+                                	<button class="btn btn-lg btn-default lr-btn"><i class=" fa fa-edit"></i> Register</button></a>
+                                </li>
+                                
+                                <li class="nav-item lr"><a href="pages/register.html" class="nav-link">
+                                	<button class="btn btn-lg btn-default lr-btn"><i class=" fa fa-edit"></i> Login</button></a>
+                                </li>	
+
+                            </ul>
+
+                        </div>        
+                </nav>
+
+
+		<!-- End Navigation Bar -->
+
+		</header>
+
+        <main>{% block content %}{% endblock %}</main>
+
+        <footer>
+        	<!--footer-->
+        	<section class="footer">
+        		<div class="footerContent">
+        			<center>
+        				<div class="row footerRow">
+        					<div class="col-md-4">
+        						<h5><strong>Quick Links</strong></h5>
+        						<hr>
+        						<ul>
+        							<li><a href="#">Blog</a></li>
+        							<li><a href="#">Contact Us</a></li>
+
+        						</ul>
+        					</div>
+
+        					<div class="col-md-4">
+        						<h5><strong>  Social Media</strong></h5>
+        						<hr>
+        						<ul class="socialIcons">
+        							<li><a href="#"><i class="fab fa-facebook-f ml-3"></i></a></li>
+        							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        							<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+        							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        						</ul>
+        					</div>
+
+        					<div class="col-md-4">
+        						<h5><strong>Newsletter</strong></h5>
+        						<hr>
+        						<p>Stay Connected! <br>  Subscribe to our newsletter.</p>
+        						<form class="form-inline">
+        							<div class="input-group mb-3">
+        								<input type="text" class="subscribeField" placeholder="Email address">
+        								<div class="input-group-append">
+        									<button class="btn btn-success form-btn">Subscribe</button>
+        								</div>
+        							</div>
+        						</form>
+        					</div>
+        				</div>
+        			</center>
+        		</div>
+
+        		<div class="footerCopyright">
+        			<span id="copyRight">All rights reserved. Crafted With <i class="fa fa-heart"></i> By Ian, Uju, Tatenda & Sierra. </span>
+        		</div>
+
+        	</section>
+
+         </footer>
+         <!--End of Footer-->
+
+        <!-- JavaScript CDN links -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		
+	</body>
+</html>
