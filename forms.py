@@ -20,6 +20,6 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
 
-class Difficulty(FlaskForm):
-    question = IntegerField('Difficulty', validators=[NumberRange(min=1, max=20, message='')])
+class Questions(FlaskForm):
+    question = IntegerField('Questions', validators=[NumberRange(min=1, max=20, message='')])
     submit = SubmitField('Submit')

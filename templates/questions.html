@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>QUESTION AMOUNT</h1>
+<p><b>USERNAME:</b></p> 
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+    <div class="form-group">
+        {{ form.question.label(class="form-control-label") }}
+        {% if form.question.errors %}
+          {{ form.question(class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+            {% for error in form.question.errors%}
+                <span>{{error}}</span>
+            {% endfor %}
+          </div>
+      {% else %}
+          {{ form.question(class="form-control form-control-lg") }}
+      {% endif %}
+    </div>
+ </fieldset>
+            <div class="form-group">
+             {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+         </form>
+     </div>
+{% endblock %}

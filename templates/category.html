@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>CATEGORIES</h1>
+<p><b>USERNAME:</b></p> 
+         <form action ='/difficulty' method= 'POST'>
+    <fieldset>
+      <div>
+      <input type = "radio" value= "arts_and_literature" name = "category" required /> Arts & Literature
+      </div>
+      <div>
+      <input type = "radio" value= "film_and_tv" name = "category" required /> Film & Tv
+      </div>
+      <div>
+      <input type = "radio" value= "food_and_drink" name = "category" required /> Food & Drink
+      </div>
+      <div>
+      <input type = "radio" value= "general_knowledge" name = "category" required /> General Knowledge
+      </div>
+      <div>
+      <input type = "radio" value= "geography" name = "category" required /> Geography
+      </div>
+      <div>
+      <input type = "radio" value= "history" name = "category" required /> History
+      </div>
+      <div>
+      <input type = "radio" value= "music" name = "category" required /> Music
+      </div>
+      <div>
+      <input type = "radio" value= "science" name = "category" required /> Science
+      </div>
+      <div>
+      <input type = "radio" value= "society_and_culture" name = "category" required /> Society & Culture
+      </div>
+      <div>
+      <input type = "radio" value= "sports_and_leisure" name = "category" required /> Sports & Leisure
+      </div>
+    
+    <input type = "submit" value="submit"/>
+    </fieldset>
+    </form>
+{% endblock %}
