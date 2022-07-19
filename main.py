@@ -14,7 +14,7 @@ def create_app():
      # app = Flask(__name__)
      # return '<h1>Hello World!</h1>'
      # app.config['SECRET_KEY'] = 'groupisgreat'
-     return render_template('homepage.html')
+     return render_template('index.html', title="Trivia Game")
 
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0', port=5001)
