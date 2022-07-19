@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Trivia Game</title>
-    </head>
-    <body>
+{% extends "layout.html" %}
+{% block content %}
+<h1>QUESTION AMOUNT</h1>
+<p><b>USERNAME:</b></p> 
     <div class="content-section">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
@@ -27,5 +25,4 @@
           </div>
          </form>
      </div>
-    </body>
-</html>
+{% endblock %}

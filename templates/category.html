@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Trivia Game</title>
-    </head>
-    <body>
+{% extends "layout.html" %}
+{% block content %}
+<h1>CATEGORIES</h1>
+<p><b>USERNAME:</b></p> 
          <form action ='/difficulty' method= 'POST'>
     <fieldset>
       <div>
@@ -40,5 +38,4 @@
     <input type = "submit" value="submit"/>
     </fieldset>
     </form>
-    </body>
-</html>
+{% endblock %}

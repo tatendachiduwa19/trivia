@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-   <title>Trivia Game</title>
-</head>
-
-<body>
+{% extends "layout.html" %}
+{% block content %}
 
     {% if answered == correct %}
         <p> Congratulations you are correct +1 point </p>
@@ -15,6 +9,4 @@
     <form action ='/run' method= 'POST'>
     <input type = "submit" value="next"/>
     </form>
-</body>
-
-</html>
+{% endblock %}

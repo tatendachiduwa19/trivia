@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  
-</head>
-
-<body>
+{% extends "layout.html" %}
+{% block content %}
     <form action ='/answered' method= 'POST'>
     <fieldset>
       {{ data[current_question][ 'question'] }}
@@ -21,6 +15,4 @@
     <input type = "submit" value="submit"/>
     </fieldset>
     </form>
-</body>
-
-</html>
+{% endblock %}
