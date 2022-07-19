@@ -2,6 +2,7 @@
 /* Default page4 styles */
 html,
 body{
+    background-color: #34ebd2;
     padding-top: 55px;
     height: 100%;
     font family: "Lato", sans-serif; 
@@ -95,6 +96,9 @@ ul, ol{
     display: inline-block; 
 }
 
+.navbar {
+    background: #020283;
+}
 
 .menu > a,#navigationBar ul li a{
     font-weight: bold;
@@ -121,10 +125,10 @@ ul, ol{
     font-size: 15px;
 
     background: #4077bf; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left, #40bf80 , #339966); /* For Safari 5.1 to 6.0 */
-    background: -0-linear-gradient(right, #40bf80, #339966); /* For opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #40bf80, #339966); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #40bf80, #339966); /* Standard Syntax */
+    background: -webkit-linear-gradient(left, #343deb , #4077bf); /* For Safari 5.1 to 6.0 */
+    background: -0-linear-gradient(right, #343deb, #4077bf); /* For opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #343deb, #4077bf); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #343deb, #4077bf); /* Standard Syntax */
 
     -webkit-box-shadow: 0 0 10px 0px rgba(64, 191, 128, 0.9);
     box-shadow: 0 0 10px 0px rgba(64, 191, 128, 0.9);
@@ -138,7 +142,7 @@ ul, ol{
 }
 
 .footer h5, .footer, .footer p{
-    background-color: #2a3341;
+    background: #040472;
     color: #fff;
 }
 
@@ -197,16 +201,17 @@ ul, ol{
 
 .form-btn{
     border-radius: 40px;
-    background-color: #40bf80;
+    background-color: #4034eb;
     min-width: 120px;
     color: #fff;
     font-family: calibri;
 
-    background: #40bf80; /*For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left, #40bf80, #339966); /* For safari 5.1 to 6.0 */
-    background: -0-linear-gradient(right, #40bf80, #339966); /* For opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #40bf80, #339966); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #40bf80, #339966); /* Standard Syntax */
+    background: #4077bf; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #343deb , #4077bf); /* For Safari 5.1 to 6.0 */
+    background: -0-linear-gradient(right, #343deb, #4077bf); /* For opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #343deb, #4077bf); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #343deb, #4077bf); /* Standard Syntax */
+
 
     transition: 0.5s linear;
 }
