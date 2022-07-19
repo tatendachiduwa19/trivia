@@ -13,7 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 
 		<!--CSS Stylesheet file -->
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/style.css') }}">
 	</head>
 
 	<body>
@@ -21,8 +21,8 @@
 
 		<!-- Navigation Bar -->
 
-		        <nav class="navbar navbar-expand-lg navbar-light bg-white menu fixed-top">
-	                    <a href="#" class="navbar-brand"> <img src="images/trivia.jpg" width="140px" height="60px" alt="logo image"> </a>
+		        <nav class="navbar navbar-expand-lg navbar-light menu fixed-top">
+	                    <a href="#" class="navbar-brand"> <img src="{{ url_for('static', filename='images/trivia.jpg') }}" width="250px" height="130px" alt="logo image"> </a>
  	                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navigationBar">
  	                    <span class="navbar-toggler-icon"></span>
  	                    </button>
@@ -33,11 +33,11 @@
                                      <button class="btn btn-lg btn-default lr-btn"><i class="fa fa-home"></i>Home</button></a>
                                 </li>
 
-                                <li class="nav-item lr"><a href="pages/login.html" class="nav-link">
+                                <li class="nav-item lr"><a href="{{ url_for('static', filename='pages/register.html') }}" class="nav-link">
                                 	<button class="btn btn-lg btn-default lr-btn"><i class=" fa fa-edit"></i> Register</button></a>
                                 </li>
                                 
-                                <li class="nav-item lr"><a href="pages/register.html" class="nav-link">
+                                <li class="nav-item lr"><a href="{{ url_for('static', filename='pages/login.html') }}" class="nav-link">
                                 	<button class="btn btn-lg btn-default lr-btn"><i class=" fa fa-edit"></i> Login</button></a>
                                 </li>	
 
