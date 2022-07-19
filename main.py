@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from models import *
 from forms import *
+import random
 import requests
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'groupisgreat'
@@ -65,9 +66,13 @@ def quiz():
 @app.route('/run',methods = ['GET', 'POST'])
 def run():
      if current_question< len(data):
-        return render_template('question.html', data = data, current_question = current_question) 
+          q = data[current_question]
+          options = q['incorrectAnswers'] + [q['correctAnswer']]
+          random.shuffle(options)
+          # return render_template('question.html', data = data, current_question = current_question) 
+          return render_template('question.html', question = q, options = options)
      else:
-        return '<h1> Correct Answers: ' + str(correct) + '</h1>'
+          return '<h1> Correct Answers: ' + str(correct) + '</h1>'
         
 @app.route("/answered", methods = ['POST'])
 def check_answer():
