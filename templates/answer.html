@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Trivia Game</title>
+</head>
+
+<body>
+
+    {% if answered == correct %}
+        <p> Congratulations you are correct +1 point </p>
+    {% else %}
+        <p> Sorry the correct answer is {{ correct }} </p>
+    {% endif %}   
+    <form action ='/run' method= 'POST'>
+    <input type = "submit" value="next"/>
+    </form>
+</body>
+
+</html>
