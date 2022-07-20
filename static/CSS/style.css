@@ -80,6 +80,12 @@ ul, ol{
     padding: 0; 
 }
 
+label{
+    font-size: larger;
+    font-weight: bold;
+    align-content: center;
+}
+
 /* End of default page styles */
 
 
@@ -138,7 +144,7 @@ ul, ol{
 }
 
 .footer {
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 .footer h5, .footer, .footer p{
@@ -237,9 +243,10 @@ ul, ol{
     align-content: center;
 }
 
-label{
-    font-size: larger;
-    font-weight: bold;
-    align-content: center;
+.btn-forms {
+    width: 10%;
+    margin-top: 10px;
+    margin-left:45%;
 }
+
 

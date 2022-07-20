@@ -21,7 +21,8 @@ def create_app():
 @app.route('/static/login.html')
 def login():
      # log in
-     return render_template('login.html')
+     loginForm = LoginForm()
+     return render_template('login.html', form=loginForm)
 
 @app.route('/category', methods = ['GET','POST'])
 def start():

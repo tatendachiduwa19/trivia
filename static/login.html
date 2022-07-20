@@ -1,11 +1,36 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>LOGIN</h1>
-    <p><b>USERNAME:</b></p>  
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
-        laborum."
-    </p>
+<h3 class="text-center mt-5"><strong>Login to your account</strong></h2>
+  <form method="POST">
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <i class="fa fa-envelope"></i>
+      <input
+      
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Enter email"
+      />
+    </div>
+    
+    <div class="form-group">
+      <label for="password">Password</label>
+      <i class="fas fa-lock"></i>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        placeholder="Enter password"
+      />
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary btn-forms" 
+    onclick="event.preventDefault();alert('Logging you in')">
+        <i class="fa fa-paper-plane"></i>&nbspLogin
+    </button>
+  </form>
 {% endblock %}
