@@ -88,8 +88,12 @@ label {
 }
 
 fieldset {
-    width: 50%;
-    margin-left: 50%;
+    font-size: large;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    width: 15%;
+    margin: auto;
 }
 
 /* End of default page styles */
