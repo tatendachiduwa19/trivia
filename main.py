@@ -25,9 +25,10 @@ def login():
      return render_template('login.html', form=loginForm)
 
 @app.route('/category', methods = ['GET','POST'])
+@app.route('/static/category.html', methods = ['GET','POST'])
 def start():
      #show categories
-     return render_template('category.html')  
+     return render_template('category.html')
 
 @app.route('/difficulty', methods = ['GET','POST'])
 def get_difficulty():
