@@ -76,10 +76,10 @@ def run():
           q = data[current_question]
           options = q['incorrectAnswers'] + [q['correctAnswer']]
           random.shuffle(options)
-          # return render_template('question.html', data = data, current_question = current_question) 
           return render_template('question.html', question = q, options = options)
      else:
-          return '<h1> Correct Answers: ' + str(correct) + '</h1>'
+          #return '<h1> Correct Answers: ' + str(correct) + '</h1>'
+          return render_template('result.html', score=str((correct/len(data)*100)))
         
 @app.route("/answered", methods = ['POST'])
 def check_answer():
