@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
 # from flask_sqlalchemy import SQLAlchemy
-from __init__ import app, db # , bcrypt
+from __init__ import app, db , bcrypt
 from models import *
 from forms import *
 import random
@@ -8,6 +8,7 @@ import requests
 '''
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'groupisgreat'
+proxied = FlaskBehindProxy(app)  ## handle redirects
 
 # bcrypt = Bcrypt(app) for password hiding
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
@@ -19,12 +20,18 @@ db = SQLAlchemy(app)
 def create_app():
      return render_template('index.html', title="Trivia Game")
 
-@app.route('/login')
-@app.route('/static/login.html')
+@app.route('/login', methods=['GET', 'POST'])
+@app.route('/static/login.html', methods=['GET', 'POST'])
 def login():
      # log in
-     loginForm = LoginForm()
-     return render_template('login.html', form=loginForm)
+     form = LoginForm()
+     if form.validate_on_submit(): # checks if entries are valid
+          email=form.email.data
+          password=form.password.data
+          # TO-DO: CHECK AGAINST DATA IN DATABASE TO VALIDATE LOGIN
+          flash(f'Logging you in', 'success')
+          return redirect(url_for('category')) # if so - send to category
+     return render_template('login.html', title='Login', form=form)
 
 @app.route('/category', methods = ['GET','POST'])
 @app.route('/static/category.html', methods = ['GET','POST'])
@@ -98,10 +105,17 @@ def check_answer():
     current_question +=1  
     return render_template('answer.html', answered = answered, correct = correctAnswer) 
 
-@app.route('/register')
-@app.route('/static/register.html')
+@app.route('/register', methods=['GET', 'POST'])
+@app.route('/static/register.html', methods=['GET', 'POST'])
 def register():
-     return render_template('register.html', myform = myform)
+     form = RegistrationForm()
+     if form.validate_on_submit(): # checks if entries are valid
+          user = User(username=form.username.data, email=form.email.data, password=form.password.data)
+          db.session.add(user)
+          db.session.commit()
+          flash(f'Account created for {form.username.data}!', 'success')
+          return redirect(url_for('home')) # if so - send to home page
+     return render_template('register.html', title='Register', form=form)
      
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0', port=5001)
