@@ -116,8 +116,6 @@ def register():
           db.session.add(user)
           db.session.commit()
           flash(f'Account created for {form.username.data}!', 'success')
-          pswd = hashed_password
-          pwd_hash = bcrypt.generate_password_harsh('pswd').decode("utf-8")
           return redirect(url_for('home')) # if so - send to home page
      return render_template('register.html', title='Register', form=form)
      
