@@ -1,16 +1,18 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
-from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
+# from flask_sqlalchemy import SQLAlchemy
+from __init__ import app, db # , bcrypt
 from models import *
 from forms import *
 import random
 import requests
+'''
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'groupisgreat'
 
 # bcrypt = Bcrypt(app) for password hiding
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
+'''
 
 @app.route('/')
 @app.route('/static/index.html')
@@ -76,28 +78,30 @@ def run():
           q = data[current_question]
           options = q['incorrectAnswers'] + [q['correctAnswer']]
           random.shuffle(options)
+
           return render_template('question.html', question = q, options = options)
      else:
           #return '<h1> Correct Answers: ' + str(correct) + '</h1>'
           return render_template('result.html', score=str((correct/len(data)*100)))
+
         
 @app.route("/answered", methods = ['POST'])
 def check_answer():
-     global correct
-     global current_question
+    global correct
+    global current_question
     
-     id = data[current_question]['id']
-     answered = request.form[id]
-     correctAnswer = answers[current_question]
-     if answered == correctAnswer:
-          correct = correct +1
-     current_question +=1  
-     return render_template('answer.html', answered = answered, correct = correctAnswer) 
+    id = data[current_question]['id']
+    answered = request.form[id]
+    correctAnswer = answers[current_question]
+    if answered == correctAnswer:
+        correct = correct +1
+    current_question +=1  
+    return render_template('answer.html', answered = answered, correct = correctAnswer) 
 
 @app.route('/register')
 @app.route('/static/register.html')
 def register():
-     return render_template('register.html')
+     return render_template('register.html', myform = myform)
      
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0', port=5001)
