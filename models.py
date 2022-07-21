@@ -7,14 +7,27 @@ class User(db.Model):
     password = db.Column(db.String(60), nullable=False)
     correct = db.Column(db.Integer, nullable=False, default=0)
     total = db.Column(db.Integer, nullable=False, default=0)
-    ArtsandLiterature = db.Column(db.Integer, nullable = False, default=0)
-    FilmandTV = db.Column(db.Integer, nullable = False, default=0)
-    FoodandDrink = db.Column(db.Integer, nullable = False, default=0)
-    GeneralKnowledge = db.Column(db.Integer, nullable = False, default=0)
-    Geography = db.Column(db.Integer, nullable = False, default=0)
-    History = db.Column(db.Integer, nullable = False, default=0)
+
+    total_ArtsandLiterature = db.Column(db.Integer, nullable = False, default=0)
+    correct_ArtsandLiterature = db.Column(db.Integer, nullable = False, default=0)
+
+    total_FilmandTV = db.Column(db.Integer, nullable = False, default=0)
+    correct_FilmandTV = db.Column(db.Integer, nullable = False, default=0)
+
+    total_FoodandDrink = db.Column(db.Integer, nullable = False, default=0)
+    correct_FoodandDrink = db.Column(db.Integer, nullable = False, default=0)
+
+    total_GeneralKnowledge = db.Column(db.Integer, nullable = False, default=0)
+    correct_GeneralKnowledge = db.Column(db.Integer, nullable = False, default=0)
+
+    total_Geography = db.Column(db.Integer, nullable = False, default=0)
+    correct_Geography = db.Column(db.Integer, nullable = False, default=0)
+
+    total_History = db.Column(db.Integer, nullable = False, default=0)
+    correct_History = db.Column(db.Integer, nullable = False, default=0)
     Music = db.Column(db.Integer, nullable = False, default=0)
-    science = db.Column(db.Integer, nullable = False, default=0)
+    total_science = db.Column(db.Integer, nullable = False, default=0)
+    correct_science = db.Column(db.Integer, nullable = False, default=0)
     SocietyandCulture = db.Column(db.Integer, nullable = False, default=0)
     SportsandLeisure = db.Column(db.Integer, nullable = False, default=0)
     questions = db.relationship('Question', backref='user', lazy=True)
@@ -32,3 +45,4 @@ class Question(db.Model):
     user_id = db.Column(db.Text, db.ForeignKey('user.id'), nullable=False)
     def __repr__(self):
         return f"Question('{self.question}')"
+f.question}')"
