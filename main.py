@@ -1,20 +1,11 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
 # from flask_sqlalchemy import SQLAlchemy
-from __init__ import app, db #, bcrypt
+from __init__ import app, db, bcrypt
 from models import *
 from forms import *
 import random
 import requests
-import bcrypt
-'''
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'groupisgreat'
-proxied = FlaskBehindProxy(app)  ## handle redirects
 
-# bcrypt = Bcrypt(app) for password hiding
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-db = SQLAlchemy(app)
-'''
 
 @app.route('/')
 @app.route('/static/index.html')
@@ -111,7 +102,7 @@ def check_answer():
 def register():
      form = RegistrationForm()
      if form.validate_on_submit(): # checks if entries are valid
-          pwd_hash = bcrypt.generate_password_hash(form.password.data).decode(“utf-8”)   
+          pwd_hash = bcrypt.generate_password_hash(form.password.data).decode("utf-8")   
           user = User(username = form.username.data, email = form.email.data, password = pwd_hash)
           db.session.add(user)
           db.session.commit()
