@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
 # from flask_sqlalchemy import SQLAlchemy
-from __init__ import app, db , bcrypt
+from __init__ import app, db #, bcrypt
 from models import *
 from forms import *
 import random
@@ -30,7 +30,7 @@ def login():
           password=form.password.data
           # TO-DO: CHECK AGAINST DATA IN DATABASE TO VALIDATE LOGIN
           flash(f'Logging you in', 'success')
-          return redirect(url_for('category')) # if so - send to category
+          return redirect(url_for('home')) # if so - send to category
      return render_template('login.html', title='Login', form=form)
 
 @app.route('/category', methods = ['GET','POST'])
