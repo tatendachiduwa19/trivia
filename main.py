@@ -1,11 +1,14 @@
 from flask import Flask, render_template, url_for, flash, redirect, request, session
 from flask_session import Session
 # from flask_sqlalchemy import SQLAlchemy
+
 from __init__ import app, db, bcrypt
+
 from models import *
 from forms import *
 import random
 import requests
+#import bcrypt
 '''
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'groupisgreat'
@@ -134,7 +137,8 @@ def check_answer():
 def register():
      form = RegistrationForm()
      if form.validate_on_submit(): # checks if entries are valid
-          user = User(username=form.username.data, email=form.email.data, password=form.password.data)
+          pwd_hash = bcrypt.generate_password_hash(form.password.data).decode(“utf-8”)   
+          user = User(username = form.username.data, email = form.email.data, password = pwd_hash)
           db.session.add(user)
           db.session.commit()
           flash(f'Account created for {form.username.data}!', 'success')
