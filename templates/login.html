@@ -3,33 +3,38 @@
 <h3 class="text-center mt-5"><strong>Login to your account</strong></h2>
   <form method="POST">
 
-    <div class="form-group">
-      <label for="email">Email Address</label>
-      <i class="fa fa-envelope"></i>
-      <input
-      
-        type="email"
-        class="form-control"
-        id="email"
-        name="email"
-        placeholder="Enter email"
-      />
-    </div>
-    
-    <div class="form-group">
-      <label for="password">Password</label>
-      <i class="fas fa-lock"></i>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        placeholder="Enter password"
-      />
-    </div>
+    {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.email.label(class="form-control-label") }}
+            <i class="fa fa-envelope"></i>
+            {% if form.email.errors %}
+            {{ form.email(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.email(class="form-control form-control-lg") }}
+        {% endif %}
+        </div>
+
+        <div class="form-group">
+        {{ form.password.label(class="form-control-label") }}
+        <i class="fas fa-lock"></i>
+        {% if form.password.errors %}
+          {{ form.password(class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+            {% for error in form.password.errors%}
+              <span>{{error}}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.password(class="form-control form-control-lg") }}
+        {% endif %}
+        </div>
     <br/>
-    <button type="submit" class="btn btn-primary btn-forms" 
-    onclick="event.preventDefault();alert('Logging you in')">
+    <button type="submit" class="btn btn-primary btn-forms">
         <i class="fa fa-paper-plane"></i>&nbspLogin
     </button>
   </form>

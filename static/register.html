@@ -3,55 +3,72 @@
   <form method="POST">
     <h3 align="center">Create New Account</h3>
     
-    <div class="form-group">
-      <label for="Username">Username</label>
-      <i class="fas fa-user-circle"></i>
-      <input
-        type="text"
-        class="form-control"
-        id="Username"
-        name="Username"
-        placeholder="Enter Username"
-      />
-    </div>
+            {{ form.hidden_tag() }}
+            
+              
+              <div class="form-group">
+              {{ form.username.label(class="form-control-label") }}
+              <i class="fas fa-user-circle"></i>
+              {% if form.username.errors %}
+                {{ form.username(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.username.errors%}
+                      <span>{{error}}</span>
+                  {% endfor %}
+                </div>
 
-    <div class="form-group">
-      <label for="email">Email Address</label>
-      <i class="fa fa-envelope"></i>
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        name="email"
-        placeholder="Enter email"
-      />
-    </div>
-    
-    <div class="form-group">
-      <label for="password1">Password</label>
-      <i class="fas fa-lock"></i>
-      <input
-        type="password1"
-        class="form-control"
-        id="password1"
-        name="password1"
-        placeholder="Enter password"
-      />
-    </div>
-    <div class="form-group">
-      <label for="password2">Confirm Password</label>
-      <i class="fas fa-lock"></i>
-      <input
-        type="password"
-        class="form-control"
-        id="password2"
-        name="password2"
-        placeholder="Confirm your password"
-      />
-    </div>
+              {% else %}
+                {{ form.username(class="form-control form-control-lg") }}
+              {% endif %}
+              </div>
+
+              <div class="form-group">
+              {{ form.email.label(class="form-control-label") }}
+              <i class="fa fa-envelope"></i>
+              {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.email.errors%}
+                    <span>{{error}}</span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.email(class="form-control form-control-lg") }}
+              {% endif %}
+              </div>
+
+              <div class="form-group">
+              {{ form.password.label(class="form-control-label") }}
+              <i class="fas fa-lock"></i>
+              {% if form.password.errors %}
+                {{ form.password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.password.errors%}
+                    <span>{{error}}</span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.password(class="form-control form-control-lg") }}
+              {% endif %}
+              </div>
+
+              <div class="form-group">
+              {{ form.confirm_password.label(class="form-control-label") }}
+              <i class="fas fa-lock"></i>
+              {% if form.confirm_password.errors %}
+                {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.confirm_password.errors%}
+                    <span>{{error}}</span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.confirm_password(class="form-control form-control-lg") }}
+              {% endif %}
+              </div>
+            
     <br/>
-    <button type="submit" class="btn btn-primary btn-forms" 
-    onclick="event.preventDefault();alert('Creating your account')">
+    <button type="submit" class="btn btn-primary btn-forms">
     <i class="fa fa-user-plus"></i>
       Register
     </button>
