@@ -1,12 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
-
+<div class="answer">
     {% if answered == correct %}
-        <p> Congratulations you are correct +1 point </p>
+        <h4> Congratulations! You got it right +1 point </h4>
     {% else %}
-        <p> Sorry the correct answer is {{ correct }} </p>
+        <h4> Sorry, the correct answer is: <br><br><b><u>{{ correct }} </u></b></h4>
     {% endif %}   
     <form action ='/run' method= 'POST'>
-    <input type = "submit" value="next"/>
+    </div>
+    <br>
+    <button type = "submit" value="next" class="btn btn-primary btn-forms btn-answer">
+    Next    <i class="fa fa-arrow-right"></i>
     </form>
+</button>
 {% endblock %}

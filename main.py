@@ -13,15 +13,22 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 @app.route('/')
+@app.route('/static/index.html')
 def create_app():
-     # app = Flask(__name__)
-     # return '<h1>Hello World!</h1>'
-     # app.config['SECRET_KEY'] = 'groupisgreat'
      return render_template('index.html', title="Trivia Game")
 
+@app.route('/login')
+@app.route('/static/login.html')
+def login():
+     # log in
+     loginForm = LoginForm()
+     return render_template('login.html', form=loginForm)
+
 @app.route('/category', methods = ['GET','POST'])
+@app.route('/static/category.html', methods = ['GET','POST'])
 def start():
-     return render_template('category.html')  #show categories
+     #show categories
+     return render_template('category.html')
 
 @app.route('/difficulty', methods = ['GET','POST'])
 def get_difficulty():
@@ -69,10 +76,12 @@ def run():
           q = data[current_question]
           options = q['incorrectAnswers'] + [q['correctAnswer']]
           random.shuffle(options)
-          # return render_template('question.html', data = data, current_question = current_question) 
+
           return render_template('question.html', question = q, options = options)
      else:
-          return '<h1> Correct Answers: ' + str(correct) + '</h1>'
+          #return '<h1> Correct Answers: ' + str(correct) + '</h1>'
+          return render_template('result.html', score=str((correct/len(data)*100)))
+
         
 @app.route("/answered", methods = ['POST'])
 def check_answer():
@@ -87,11 +96,10 @@ def check_answer():
      current_question +=1  
      return render_template('answer.html', answered = answered, correct = correctAnswer) 
 
+@app.route('/register')
+@app.route('/static/register.html')
+def register():
+     return render_template('register.html')
      
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0', port=5001)
-
-
-
-
-

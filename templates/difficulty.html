@@ -1,8 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>DIFFICULTY</h1>
-<p><b>USERNAME:</b></p> 
-    <form action ='/questions' method= 'POST'>
+<h2>Choose Difficulty</h2> 
+  <form action ='/questions' method= 'POST'>
     <fieldset>
       <div>
       <input type = "radio" value= "easy" name = "difficulty" required /> easy
@@ -13,8 +12,9 @@
       <div>
       <input type = "radio" value= "hard" name = "difficulty" required /> hard
       </div>
-     
-    <input type = "submit" value="submit"/>
     </fieldset>
-    </form>
+    <button type = "submit" value="submit" class="btn btn-primary btn-forms btn-difficulty">
+      <i class="fa fa-paper-plane"></i>  Submit
+    </button>
+  </form>
 {% endblock %}

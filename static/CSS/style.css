@@ -12,6 +12,7 @@ body{
 } 
 
 h1, h2, h3, h4, h5, h6{
+    text-align: center;
     color: #494753; 
     margin: 0; 
     font-weight: 549; 
@@ -76,8 +77,26 @@ a:focus{
     cursor: pointer; 
 }
 
-ul, ol{
+ul, ol {
     padding: 0; 
+}
+
+label {
+    font-size: larger;
+    font-weight: bold;
+    align-content: center;
+}
+
+fieldset {
+    font-weight: bolder;
+    font-size: large;
+    font-family: "Lato", sans-serif;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    display: block;
+    width: 15%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /* End of default page styles */
@@ -138,7 +157,7 @@ ul, ol{
 }
 
 .footer {
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 .footer h5, .footer, .footer p{
@@ -223,3 +242,67 @@ ul, ol{
 }
 
 /*End of custom styles */
+
+.form-group {
+    text-align: center;
+    max-width: 50%;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.form-control {
+    text-align: center;
+    align-content: center;
+}
+
+.btn-forms {
+    width: 10%;
+    margin-top: 10px;
+    margin-left:45%;
+}
+
+.btn-difficulty {
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: 42.5%;
+    display: block;
+}
+
+.question {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.options {
+    text-align: center;
+}
+
+.answer {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-top: 75px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    font-smoothing:antialiased; 
+}
+
+.btn-answer {
+    margin-right: 25px;
+}
+
+.score {
+    margin-top: 50px;
+    font-weight: bolder;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
