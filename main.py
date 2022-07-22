@@ -108,7 +108,7 @@ def run():
           options = q['incorrectAnswers'] + [q['correctAnswer']]
           random.shuffle(options)
 
-          return render_template('question.html', question = q, options = options)
+          return render_template('question.html', question = q, options = options, n = current_question +1, c = correct, t = len(data))
      else:
           #return '<h1> Correct Answers: ' + str(correct) + '</h1>'
           return render_template('result.html', score=str((correct/len(data)*100)))
