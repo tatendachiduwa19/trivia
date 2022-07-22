@@ -137,7 +137,7 @@ def check_answer():
 def register():
      form = RegistrationForm()
      if form.validate_on_submit(): # checks if entries are valid
-          pwd_hash = bcrypt.generate_password_hash(form.password.data).decode(“utf-8”)   
+          pwd_hash = bcrypt.generate_password_hash(form.password.data).decode("utf-8")   
           user = User(username = form.username.data, email = form.email.data, password = pwd_hash)
           db.session.add(user)
           db.session.commit()
