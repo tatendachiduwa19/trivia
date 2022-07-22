@@ -7,16 +7,37 @@ class User(db.Model):
     password = db.Column(db.String(60), nullable=False)
     correct = db.Column(db.Integer, nullable=False, default=0)
     total = db.Column(db.Integer, nullable=False, default=0)
-    ArtsandLiterature = db.Column(db.Integer, nullable = False, default=0)
-    FilmandTV = db.Column(db.Integer, nullable = False, default=0)
-    FoodandDrink = db.Column(db.Integer, nullable = False, default=0)
-    GeneralKnowledge = db.Column(db.Integer, nullable = False, default=0)
-    Geography = db.Column(db.Integer, nullable = False, default=0)
-    History = db.Column(db.Integer, nullable = False, default=0)
-    Music = db.Column(db.Integer, nullable = False, default=0)
-    science = db.Column(db.Integer, nullable = False, default=0)
-    SocietyandCulture = db.Column(db.Integer, nullable = False, default=0)
-    SportsandLeisure = db.Column(db.Integer, nullable = False, default=0)
+
+    total_ArtsandLiterature = db.Column(db.Integer, nullable = False, default=0)
+    correct_ArtsandLiterature = db.Column(db.Integer, nullable = False, default=0)
+
+    total_FilmandTV = db.Column(db.Integer, nullable = False, default=0)
+    correct_FilmandTV = db.Column(db.Integer, nullable = False, default=0)
+
+    total_FoodandDrink = db.Column(db.Integer, nullable = False, default=0)
+    correct_FoodandDrink = db.Column(db.Integer, nullable = False, default=0)
+
+    total_GeneralKnowledge = db.Column(db.Integer, nullable = False, default=0)
+    correct_GeneralKnowledge = db.Column(db.Integer, nullable = False, default=0)
+
+    total_Geography = db.Column(db.Integer, nullable = False, default=0)
+    correct_Geography = db.Column(db.Integer, nullable = False, default=0)
+
+    total_History = db.Column(db.Integer, nullable = False, default=0)
+    correct_History = db.Column(db.Integer, nullable = False, default=0)
+
+    total_Music = db.Column(db.Integer, nullable = False, default=0)
+    correct_Music = db.Column(db.Integer, nullable = False, default=0)
+
+    total_science = db.Column(db.Integer, nullable = False, default=0)
+    correct_science = db.Column(db.Integer, nullable = False, default=0)
+
+    total_SocietyandCulture = db.Column(db.Integer, nullable = False, default=0)
+    correct_SocietyandCulture = db.Column(db.Integer, nullable = False, default=0)
+
+    total_SportsandLeisure = db.Column(db.Integer, nullable = False, default=0)
+    correct_SportsandLeisure = db.Column(db.Integer, nullable = False, default=0)
+    
     questions = db.relationship('Question', backref='user', lazy=True)
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
