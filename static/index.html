@@ -1,13 +1,41 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>TRIVIA GAME</h1>
-    <p><b>USERNAME:</b></p> 
-    <p><a href="{{ url_for('static', filename='category.html') }}">this page is followed by categories(this is a placeholder)</a> 
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
-        laborum."
-    </p>
-{% endblock %}
+<div class="home">
+    <h2 class="home">WELCOME TO TRIVIA</h2><br>
 
+    {% if session.username %}
+
+    <a href="{{ url_for('static', filename='category.html') }}">
+    <button class="btn btn-primary "> START QUIZ  <i class="fa fa-question"></i></button>
+    </a>
+<div>
+
+    <div>
+        <img src="{{ url_for('static', filename='images/quiz.jfif') }}"  id="home-image-one" class="home-image">
+        <img src="{{ url_for('static', filename='images/quiz.jfif') }}"  id="home-image-two" class="home-image"> 
+    </div>
+
+    {% else %}
+<div class="home">
+
+    <h3 class="home">Answer multiple choice quiz questions to test your knowledge!</h3>
+    <h4 class="home"><br> TO BEGIN: <br></h4>
+    <a href="{{ url_for('static', filename='login.html') }}">
+    <button class="btn btn-primary btn-forms"> LOG IN  <i class="fa fa-user"></i></button>
+    </a>
+    <br>
+    <h4 class="home"> <br>OR</h4>
+
+    <a href="{{ url_for('static', filename='register.html') }}">
+    <button class="btn btn-primary btn-account"> CREATE AN ACCOUNT <i class="fa fa-edit"></i></button>
+    </a>
+</div>
+
+<div>
+    <img src="{{ url_for('static', filename='images/background.jpg') }}" id="home-image-left" class="home-image">
+    <img src="{{ url_for('static', filename='images/background.jpg') }}" id="home-image-right" class="home-image"> 
+</div>
+
+    {% endif %} 
+
+{% endblock %}

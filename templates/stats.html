@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
     {% for key,value in stats.items() %}
-    <div class="score">
-    <h3> {{ key }}: {{ value }} </h3>
+    <div class="stats">
+    {{ key }}: {{ value }}
     </div>
     {% endfor %}
 {% endblock %}

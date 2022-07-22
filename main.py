@@ -134,7 +134,7 @@ def register():
           db.session.add(user)
           db.session.commit()
           flash(f'Account created for {form.username.data}!', 'success')
-          return redirect(url_for('home')) # if so - send to home page
+          return redirect(url_for('login')) # if so - send to home page
      return render_template('register.html', title='Register', form=form)
 
 @app.route('/stats')   

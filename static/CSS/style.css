@@ -269,6 +269,62 @@ fieldset {
     display: block;
 }
 
+.btn-account {
+    height: 38px;
+    width: 20%%;
+    margin-top: 10px;
+    margin-left:43%;
+}
+
+.home {
+    font-family: 'Courier New', monospace;
+    font-weight: bolder;
+    color: black;
+}
+
+.home-image {
+    width: 30%;
+}
+
+.username {
+    font-size: 26px;
+    margin: 20px;
+    font-family: 'Courier New', monospace;
+    font-weight: bolder;
+    color:rgb(201, 139, 5);
+}
+
+.stats {
+    font-size: 26px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 5px;
+    font-family: 'Courier New', monospace;
+    font-weight: bolder;
+    color: black;
+}
+
+#home-image-left {
+    margin-top: -12%;
+    margin-left: 5%;
+}
+
+#home-image-right {
+    margin-top: -18%;
+    margin-left: 65%;
+}
+
+#home-image-one {
+    margin-left: 5%;
+}
+
+#home-image-two {
+    margin-top: -18%;
+    margin-left: 65%;
+}
+
 .question {
     font-size: 20px;
     font-weight: bold;
