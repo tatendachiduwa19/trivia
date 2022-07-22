@@ -1,16 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>TRIVIA GAME</h1>
+    <h1>WELCOME TO THE TRIVIA GAME</h1>
 
-    <p><b>USERNAME:</b></p>  
-    <h2>MAKE A CHOICE</h2>
-    <p><a href="{{ url_for('static', filename='category.html') }}">this page is followed by categories(this is a placeholder)</a> 
+    <img src="image.jpg"> 
+    <h2>Answer multiple choice quiz question and test your knowledge!</h2>
+    <p><a href="{{ url_for('static', filename='category.html') }}">CONTINUE AS GUEST</a> </p>
+    <p>OR</p>
+    <P>CLICK THE REGISTRATION TAB!!</P>
 
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
-        laborum."
-    </p>
+    
 {% endblock %}
 
