@@ -25,11 +25,19 @@ class User(db.Model):
 
     total_History = db.Column(db.Integer, nullable = False, default=0)
     correct_History = db.Column(db.Integer, nullable = False, default=0)
-    Music = db.Column(db.Integer, nullable = False, default=0)
+
+    total_Music = db.Column(db.Integer, nullable = False, default=0)
+    correct_Music = db.Column(db.Integer, nullable = False, default=0)
+
     total_science = db.Column(db.Integer, nullable = False, default=0)
     correct_science = db.Column(db.Integer, nullable = False, default=0)
-    SocietyandCulture = db.Column(db.Integer, nullable = False, default=0)
-    SportsandLeisure = db.Column(db.Integer, nullable = False, default=0)
+
+    total_SocietyandCulture = db.Column(db.Integer, nullable = False, default=0)
+    correct_SocietyandCulture = db.Column(db.Integer, nullable = False, default=0)
+
+    total_SportsandLeisure = db.Column(db.Integer, nullable = False, default=0)
+    correct_SportsandLeisure = db.Column(db.Integer, nullable = False, default=0)
+    
     questions = db.relationship('Question', backref='user', lazy=True)
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
@@ -45,4 +53,3 @@ class Question(db.Model):
     user_id = db.Column(db.Text, db.ForeignKey('user.id'), nullable=False)
     def __repr__(self):
         return f"Question('{self.question}')"
-f.question}')"
