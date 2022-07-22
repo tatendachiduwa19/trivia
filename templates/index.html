@@ -5,14 +5,14 @@
 
     <img src="image.jpg"> 
     <h2>Answer multiple choice quiz questions and test your knowledge!</h2>
-    
+    <br>
 
-    <h1>TRIVIA GAME</h1>
-     {% if session.username%}
-    <p><b>USERNAME: {{session.username}} </b></p>
-    <p><a href="{{ url_for('static', filename='category.html') }}" click to begin </a> 
+    {% if session.username%}
+    <p><a href="{{ url_for('static', filename='category.html') }}"> click to test your knowledge!! </a> 
     {% else %}
-    <P>CLICK THE REGISTRATION TAB!!</P>
+    <h4>CLICK THE REGISTRATION TAB!! </h4>
+    <h4> OR</h4>
+    <h4> LOGIN TO BEGIN!! </h4>
     {%endif %}  
     
 
