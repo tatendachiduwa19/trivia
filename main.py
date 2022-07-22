@@ -29,7 +29,7 @@ def login():
           # TO-DO: CHECK AGAINST DATA IN DATABASE TO VALIDATE LOGIN
           user = User.query.filter_by(email=form.email.data).first()
           if user and bcrypt.check_password_hash(user.password, form.password.data):
-               flash(f'Logging you in', 'success')
+               # flash(f'Logging you in', 'success')
                session['username'] = user.username
                return redirect(url_for('home'))
           else:
@@ -131,9 +131,15 @@ def register():
      if form.validate_on_submit(): # checks if entries are valid
           pwd_hash = bcrypt.generate_password_hash(form.password.data).decode("utf-8")   
           user = User(username = form.username.data, email = form.email.data, password = pwd_hash)
+          try:
+               db.session.add(user)
+               db.session.commit()
+          except:
+               flash('username or email taken, try again')
+               return render_template('register.html', title='Register', form=form)    
           db.session.add(user)
           db.session.commit()
-          flash(f'Account created for {form.username.data}!', 'success')
+          # flash(f'Account created for {form.username.data}!', 'success')
           return redirect(url_for('login')) # if so - send to home page
      return render_template('register.html', title='Register', form=form)
 
