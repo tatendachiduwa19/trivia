@@ -8,14 +8,14 @@ class User(db.Model):
     correct = db.Column(db.Integer, nullable=False, default=0)
     total = db.Column(db.Integer, nullable=False, default=0)
 
-    total_ArtsandLiterature = db.Column(db.Integer, nullable = False, default=0)
-    correct_ArtsandLiterature = db.Column(db.Integer, nullable = False, default=0)
+    total_Arts_and_Literature = db.Column(db.Integer, nullable = False, default=0)
+    correct_Arts_and_Literature = db.Column(db.Integer, nullable = False, default=0)
 
-    total_FilmandTV = db.Column(db.Integer, nullable = False, default=0)
-    correct_FilmandTV = db.Column(db.Integer, nullable = False, default=0)
+    total_Film_and_TV = db.Column(db.Integer, nullable = False, default=0)
+    correct_Film_and_TV = db.Column(db.Integer, nullable = False, default=0)
 
-    total_FoodandDrink = db.Column(db.Integer, nullable = False, default=0)
-    correct_FoodandDrink = db.Column(db.Integer, nullable = False, default=0)
+    total_Food_and_Drink = db.Column(db.Integer, nullable = False, default=0)
+    correct_Food_and_Drink = db.Column(db.Integer, nullable = False, default=0)
 
     total_GeneralKnowledge = db.Column(db.Integer, nullable = False, default=0)
     correct_GeneralKnowledge = db.Column(db.Integer, nullable = False, default=0)
@@ -29,14 +29,14 @@ class User(db.Model):
     total_Music = db.Column(db.Integer, nullable = False, default=0)
     correct_Music = db.Column(db.Integer, nullable = False, default=0)
 
-    total_science = db.Column(db.Integer, nullable = False, default=0)
-    correct_science = db.Column(db.Integer, nullable = False, default=0)
+    total_Science = db.Column(db.Integer, nullable = False, default=0)
+    correct_Science = db.Column(db.Integer, nullable = False, default=0)
 
-    total_SocietyandCulture = db.Column(db.Integer, nullable = False, default=0)
-    correct_SocietyandCulture = db.Column(db.Integer, nullable = False, default=0)
+    total_Society_and_Culture = db.Column(db.Integer, nullable = False, default=0)
+    correct_Society_and_Culture = db.Column(db.Integer, nullable = False, default=0)
 
-    total_SportsandLeisure = db.Column(db.Integer, nullable = False, default=0)
-    correct_SportsandLeisure = db.Column(db.Integer, nullable = False, default=0)
+    total_Sports_and_Leisure = db.Column(db.Integer, nullable = False, default=0)
+    correct_Sports_and_Leisure = db.Column(db.Integer, nullable = False, default=0)
     
     questions = db.relationship('Question', backref='user', lazy=True)
     def __repr__(self):
@@ -54,5 +54,5 @@ class Question(db.Model):
     db.UniqueConstraint('user_id', 'question_id', name='uix_1')
     def __repr__(self):
         return f"Question('{self.question}')"
-
+# db.drop_all()
 db.create_all()

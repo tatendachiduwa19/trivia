@@ -29,6 +29,7 @@
  	                    <div class="collapse navbar-collapse " id="navigationBar">
 
  		                    <ul class="navbar-nav ml-auto">
+
  		                        <li class="nav-item active px-3"><a href="{{ url_for('static', filename='index.html') }}" class="nav-link">
                                      <button class="btn btn-lg btn-default lr-btn"><i class="fa fa-home"></i>Home</button></a>
                                 </li>
@@ -36,10 +37,19 @@
                                 <li class="nav-item lr"><a href="{{ url_for('static', filename='register.html') }}" class="nav-link">
                                 	<button class="btn btn-lg btn-default lr-btn"><i class=" fa fa-edit"></i> Register</button></a>
                                 </li>
-                                
-                                <li class="nav-item lr"><a href="{{ url_for('static', filename='login.html') }}" class="nav-link">
-                                	<button class="btn btn-lg btn-default lr-btn"><i class=" fa fa-edit"></i> Login</button></a>
+                                {% if session.username%}
+								<li class="nav-item lr"><a href="{{ url_for('logout') }}" class="nav-link">
+                                	<button class="btn btn-lg btn-default lr-btn"><i class=" fa fa-edit"></i> Logout</button></a>
                                 </li>	
+								<li class="nav-item lr"><a href="{{ url_for('stats') }}" class="nav-link">
+                                	<button class="btn btn-lg btn-default lr-btn"><i class=" fa fa-edit"></i>Show Stats</button></a>
+                                </li>	
+								{%else%}
+                                
+								<li class="nav-item lr"><a href="{{ url_for('static', filename='login.html') }}" class="nav-link">
+                                	<button class="btn btn-lg btn-default lr-btn"><i class=" fa fa-edit"></i> Login</button></a>
+								</li>
+								{%endif%}
 
                             </ul>
 

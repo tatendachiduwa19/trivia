@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
     <h1>TRIVIA GAME</h1>
-
-    <p><b>USERNAME:</b></p>  
+     {% if session.username%}
+    <p><b>USERNAME: {{session.username}} </b></p>
+    {%endif %}  
     <h2>MAKE A CHOICE</h2>
     <p><a href="{{ url_for('static', filename='category.html') }}">this page is followed by categories(this is a placeholder)</a> 
 
