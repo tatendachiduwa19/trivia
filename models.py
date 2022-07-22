@@ -7,6 +7,16 @@ class User(db.Model):
     password = db.Column(db.String(60), nullable=False)
     correct = db.Column(db.Integer, nullable=False, default=0)
     total = db.Column(db.Integer, nullable=False, default=0)
+    ArtsandLiterature = db.Column(db.Integer, nullable = False, default=0)
+    FilmandTV = db.Column(db.Integer, nullable = False, default=0)
+    FoodandDrink = db.Column(db.Integer, nullable = False, default=0)
+    GeneralKnowledge = db.Column(db.Integer, nullable = False, default=0)
+    Geography = db.Column(db.Integer, nullable = False, default=0)
+    History = db.Column(db.Integer, nullable = False, default=0)
+    Music = db.Column(db.Integer, nullable = False, default=0)
+    science = db.Column(db.Integer, nullable = False, default=0)
+    SocietyandCulture = db.Column(db.Integer, nullable = False, default=0)
+    SportsandLeisure = db.Column(db.Integer, nullable = False, default=0)
     questions = db.relationship('Question', backref='user', lazy=True)
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"

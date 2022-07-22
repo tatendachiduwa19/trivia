@@ -1,23 +1,16 @@
 from flask import Flask, render_template, url_for, flash, redirect, request, session
 from flask_session import Session
 # from flask_sqlalchemy import SQLAlchemy
-
 from __init__ import app, db, bcrypt
 
 from models import *
 from forms import *
 import random
 import requests
-#import bcrypt
-'''
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'groupisgreat'
-proxied = FlaskBehindProxy(app)  ## handle redirects
 
-# bcrypt = Bcrypt(app) for password hiding
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-db = SQLAlchemy(app)
-'''
+#import bcrypt
+
+
 
 Session(app)
 
