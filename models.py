@@ -55,5 +55,5 @@ class Question(db.Model):
     db.UniqueConstraint('user_id', 'question_id', name='uix_1')
     def __repr__(self):
         return f"Question('{self.question}')"
-db.drop_all()
+# db.drop_all()
 db.create_all()

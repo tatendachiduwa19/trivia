@@ -38,4 +38,9 @@
         <i class="fa fa-paper-plane"></i>&nbspLogin
     </button>
   </form>
+  {% with messages = get_flashed_messages()%}
+    {% if messages%}
+      <p style="text-align:center;"">{{ messages[-1] }} </p>
+    {% endif %}
+  {% endwith %}
 {% endblock %}
