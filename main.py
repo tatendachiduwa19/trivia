@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, flash, redirect, request, ses
 from flask_session import Session
 # from flask_sqlalchemy import SQLAlchemy
 from __init__ import app, db, bcrypt
+
 from models import *
 from forms import *
 import random
@@ -26,7 +27,6 @@ def login():
           email=form.email.data
           password=form.password.data
           # TO-DO: CHECK AGAINST DATA IN DATABASE TO VALIDATE LOGIN
-
           user = User.query.filter_by(email=form.email.data).first()
           if user and bcrypt.check_password_hash(user.password, form.password.data):
                login_user(user)
@@ -36,9 +36,7 @@ def login():
           else:
                flash('Login Unsuccessful. Please check email and password', 'danger')
           return redirect(url_for('category')) # if so - send to category
-
      return render_template('login.html', title='Login', form=form)
-
 
 # logout route
 @app.route('/logout')
