@@ -60,7 +60,9 @@
 		<!-- End Navigation Bar -->
 
 		</header>
-
+		{% if session.username%}
+    	<p><b>USERNAME: {{session.username}} </b></p>
+		{% endif%}
         <main>{% block content %}{% endblock %}</main>
 
         <footer>
