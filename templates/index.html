@@ -1,12 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
+
     <h1>WELCOME TO THE TRIVIA GAME</h1>
 
     <img src="image.jpg"> 
-    <h2>Answer multiple choice quiz question and test your knowledge!</h2>
-    <p><a href="{{ url_for('static', filename='category.html') }}">CONTINUE AS GUEST</a> </p>
-    <p>OR</p>
+    <h2>Answer multiple choice quiz questions and test your knowledge!</h2>
+    
+
+    <h1>TRIVIA GAME</h1>
+     {% if session.username%}
+    <p><b>USERNAME: {{session.username}} </b></p>
+    <p><a href="{{ url_for('static', filename='category.html') }}" click to begin </a> 
+    {% else %}
     <P>CLICK THE REGISTRATION TAB!!</P>
+    {%endif %}  
+    
+
 
     
 {% endblock %}
