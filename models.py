@@ -5,6 +5,7 @@ class User(db.Model):
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
+    
     correct = db.Column(db.Integer, nullable=False, default=0)
     total = db.Column(db.Integer, nullable=False, default=0)
 
@@ -54,5 +55,5 @@ class Question(db.Model):
     db.UniqueConstraint('user_id', 'question_id', name='uix_1')
     def __repr__(self):
         return f"Question('{self.question}')"
-# db.drop_all()
+db.drop_all()
 db.create_all()
