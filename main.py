@@ -8,9 +8,6 @@ from forms import *
 import random
 import requests
 
-#import bcrypt
-
-
 
 Session(app)
 
@@ -40,7 +37,6 @@ def login():
                flash('Login Unsuccessful. Please check email and password', 'danger')
           return redirect(url_for('category')) # if so - send to category
      return render_template('login.html', title='Login', form=form)
-
 
 # logout route
 @app.route('/logout')
