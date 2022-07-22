@@ -5,7 +5,7 @@ from models import *
 from forms import *
 import random
 import requests
-from statistics import update
+from statistics import update, get_stats
 
 
 Session(app)
@@ -140,9 +140,7 @@ def register():
 @app.route('/stats')   
 def stats():
      global user
-     user = User.query.filter_by(username = session['username']).first()
-     stat = user.correct_Music
-     stat2 = user.total_Music
-     return render_template('stats.html', stat = stat, stat2 = stat2)
+     stats = get_stats(session['username'])
+     return render_template('stats.html', stats=stats)
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0', port=5001)
