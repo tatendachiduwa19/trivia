@@ -24,11 +24,12 @@ class User(db.Model):
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String(100), nullable=False)
-    question_id = db.Column(db.String(100), unique = True, nullable = False)
+    question_id = db.Column(db.String(100), nullable = False)
     correct = db.Column(db.String(100), nullable=False)
     incorrect1 = db.Column(db.String(100), nullable=False)
     incorrect2 = db.Column(db.String(100), nullable=False)
     incorrect3 = db.Column(db.String(100), nullable=False)
     user_id = db.Column(db.Text, db.ForeignKey('user.id'), nullable=False)
+    db.UniqueConstraint('user_id', 'question_id', name='uix_1')
     def __repr__(self):
         return f"Question('{self.question}')"

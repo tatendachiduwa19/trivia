@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for, flash, redirect, request
+from flask import Flask, render_template, url_for, flash, redirect, request, session
+from flask_session import Session
 # from flask_sqlalchemy import SQLAlchemy
 from __init__ import app, db, bcrypt
 from models import *
@@ -7,11 +8,15 @@ import random
 import requests
 
 
+Session(app)
+
+# home page
 @app.route('/')
 @app.route('/static/index.html')
-def create_app():
+def home():
      return render_template('index.html', title="Trivia Game")
 
+# login route
 @app.route('/login', methods=['GET', 'POST'])
 @app.route('/static/login.html', methods=['GET', 'POST'])
 def login():
@@ -21,10 +26,27 @@ def login():
           email=form.email.data
           password=form.password.data
           # TO-DO: CHECK AGAINST DATA IN DATABASE TO VALIDATE LOGIN
-          flash(f'Logging you in', 'success')
-          return redirect(url_for('home')) # if so - send to category
+
+          user = User.query.filter_by(email=form.email.data).first()
+          if user and bcrypt.check_password_hash(user.password, form.password.data):
+               login_user(user)
+               flash(f'Logging you in', 'success')
+               session['username'] = user.username
+               return redirect(url_for('home'))
+          else:
+               flash('Login Unsuccessful. Please check email and password', 'danger')
+          return redirect(url_for('category')) # if so - send to category
+
      return render_template('login.html', title='Login', form=form)
 
+
+# logout route
+@app.route('/logout')
+def logout():
+     session.pop('username', None)
+     return redirect(url_for(home))
+
+# show categories
 @app.route('/category', methods = ['GET','POST'])
 @app.route('/static/category.html', methods = ['GET','POST'])
 def start():
@@ -56,6 +78,8 @@ def questions():
           return redirect(url_for('run')) # placeholder
      return render_template('questions.html', form=form)
 
+
+# create the quiz
 # @app.route('/quiz')
 def quiz():
      global data
@@ -71,6 +95,8 @@ def quiz():
      current_question = 0  #0 to 9
      answers = [i['correctAnswer'] for i in data]
 
+
+#run the quiz
 @app.route('/run',methods = ['GET', 'POST'])
 def run():
      if current_question< len(data):
