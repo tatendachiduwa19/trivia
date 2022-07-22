@@ -21,5 +21,5 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 class Questions(FlaskForm):
-    question = IntegerField('Questions', validators=[NumberRange(min=1, max=20, message='')])
+    question = IntegerField('Questions', validators=[NumberRange(min=1, max=50, message='')])
     submit = SubmitField('Submit')

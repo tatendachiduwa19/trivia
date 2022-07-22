@@ -2,10 +2,12 @@
 {% block content %}
     <form action ='/answered' method= 'POST'>
     <div class="question">
+      Question: {{ n }}      <br>    
+      Correct: {{c}} /{{t}} <br> <br>
       {{ question['question'] }}<br><br>
       {% for i in options %}
         <div class="options">
-        <input type= "radio" value = '{{ i }}' name = "{{question['id']}}" />{{ i }}
+        <input type= "radio" value = '{{ i }}' name = "{{question['id']}}" required />{{ i }}
         </div>
       {% endfor %} 
     </div>
