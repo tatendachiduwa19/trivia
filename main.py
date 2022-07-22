@@ -5,6 +5,7 @@ from models import *
 from forms import *
 import random
 import requests
+from statistics import update
 
 
 Session(app)
@@ -19,6 +20,7 @@ def home():
 @app.route('/login', methods=['GET', 'POST'])
 @app.route('/static/login.html', methods=['GET', 'POST'])
 def login():
+     global user
      # log in
      form = LoginForm()
      if form.validate_on_submit(): # checks if entries are valid
@@ -38,7 +40,7 @@ def login():
 @app.route('/logout')
 def logout():
      session.pop('username', None)
-     return redirect(url_for(home))
+     return redirect(url_for('home'))
 
 # show categories
 @app.route('/category', methods = ['GET','POST'])
@@ -106,16 +108,21 @@ def run():
         
 @app.route("/answered", methods = ['POST'])
 def check_answer():
-    global correct
-    global current_question
-    
-    id = data[current_question]['id']
-    answered = request.form[id]
-    correctAnswer = answers[current_question]
-    if answered == correctAnswer:
-        correct = correct +1
-    current_question +=1  
-    return render_template('answer.html', answered = answered, correct = correctAnswer) 
+     global correct
+     global current_question
+     global user
+     user = User.query.filter_by(username = session['username']).first()
+     id = data[current_question]['id']
+     answered = request.form[id]
+     correctAnswer = answers[current_question]
+     if answered == correctAnswer:
+          correct = correct + 1
+          a = True
+     else:
+          a = False
+     update(data[current_question]['category'], session['username'], a)
+     current_question += 1  
+     return render_template('answer.html', answered = answered, correct = correctAnswer) 
 
 @app.route('/register', methods=['GET', 'POST'])
 @app.route('/static/register.html', methods=['GET', 'POST'])
@@ -129,6 +136,13 @@ def register():
           flash(f'Account created for {form.username.data}!', 'success')
           return redirect(url_for('home')) # if so - send to home page
      return render_template('register.html', title='Register', form=form)
-     
+
+@app.route('/stats')   
+def stats():
+     global user
+     user = User.query.filter_by(username = session['username']).first()
+     stat = user.correct_Music
+     stat2 = user.total_Music
+     return render_template('stats.html', stat = stat, stat2 = stat2)
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0', port=5001)
