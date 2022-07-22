@@ -52,7 +52,7 @@ def get_stats(username):
     else:
         stats['Arts & Literature'] = "None answered"
 
-    if user.total_Food_and_Drink !=0:
+    if user.total_Film_and_TV !=0:
         stats['Film & TV'] = str((user.correct_Film_and_TV/user.total_Film_and_TV)*100) + "% correct"
     else:
         stats['Film & TV'] = "None answered"
@@ -78,7 +78,8 @@ def get_stats(username):
     
     if user.total_Science !=0:
         stats['Science'] = str((user.correct_Science/user.total_Science)*100)+ "% correct"
-    else: stats['Science'] = "None answered"
+    else: 
+        stats['Science'] = "None answered"
     
     if user.total_Society_and_Culture!=0:
         stats['Society & Culture'] = str((user.correct_Society_and_Culture/user.total_Society_and_Culture)*100)+ "% correct"
