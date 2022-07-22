@@ -91,10 +91,18 @@ def quiz():
      current_question = 0  #0 to 9
      answers = [i['correctAnswer'] for i in data]
 
+@app.route('/retry',methods = ['GET', 'POST'])
+def retry():
+     global current_question
+     global correct
+     current_question = 0
+     correct = 0
+     return redirect(url_for('run'))
 
 #run the quiz
 @app.route('/run',methods = ['GET', 'POST'])
 def run():
+     global correct
      if current_question< len(data):
           q = data[current_question]
           options = q['incorrectAnswers'] + [q['correctAnswer']]
